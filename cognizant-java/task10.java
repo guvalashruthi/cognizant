@@ -1,0 +1,27 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class task10 {
+    public static void main(String[] args) {
+
+        Random rand = new Random();
+        int number = rand.nextInt(100) + 1;
+
+        Scanner sc = new Scanner(System.in);
+
+        int guess;
+
+        do {
+            System.out.print("Guess Number: ");
+            guess = sc.nextInt();
+
+            if(guess > number)
+                System.out.println("Too High");
+            else if(guess < number)
+                System.out.println("Too Low");
+
+        } while(guess != number);
+
+        System.out.println("Correct!");
+    }
+}
