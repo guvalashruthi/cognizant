@@ -1,0 +1,19 @@
+
+/* Header styles */
+h1 {
+    font-size: 36px;
+    font-family: Arial, sans-serif;
+    color: blue;
+}       
+/* Body styles */
+body {
+   /* background-color: lightgray;*/
+    font-family: Verdana, sans-serif;
+    margin: 20px;
+}
+/* Paragraph styles */
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+}

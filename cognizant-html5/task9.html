@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation for Event Mapping</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            width: 450px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid gray;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #location {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+            font-weight: bold;
+        }
+
+        #error {
+            margin-top: 20px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Find Nearby Events</h2>
+
+        <button onclick="findLocation()">
+            Find Nearby Events
+        </button>
+
+        <p id="location"></p>
+
+        <p id="error"></p>
+
+    </div>
+
+    <script>
+
+        function findLocation() {
+
+            if (navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(
+
+                    showPosition,
+                    showError,
+
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+            }
+            else {
+
+                document.getElementById("error").innerHTML =
+                    "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+
+            document.getElementById("location").innerHTML =
+                "Latitude: " + latitude +
+                "<br>Longitude: " + longitude;
+
+            document.getElementById("error").innerHTML = "";
+        }
+
+        function showError(error) {
+
+            switch (error.code) {
+
+                case error.PERMISSION_DENIED:
+
+                    document.getElementById("error").innerHTML =
+                        "User denied location access.";
+                    break;
+
+                case error.POSITION_UNAVAILABLE:
+
+                    document.getElementById("error").innerHTML =
+                        "Location information unavailable.";
+                    break;
+
+                case error.TIMEOUT:
+
+                    document.getElementById("error").innerHTML =
+                        "Request timed out.";
+                    break;
+
+                case error.UNKNOWN_ERROR:
+
+                    document.getElementById("error").innerHTML =
+                        "An unknown error occurred.";
+                    break;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

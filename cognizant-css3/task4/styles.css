@@ -1,0 +1,39 @@
+
+body {
+    background-color: #f0f0f0; 
+    background-image: url("city-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #222222;
+}
+
+#mainHeader {
+    background-color: rgba(0, 123, 255, 0.8); 
+    color: #FFFFFF; 
+    padding: 20px;
+    text-align: center;
+    font-size: 32px;
+}
+
+section h2 {
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.eventCard {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #CCCCCC;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+p {
+    color: #444444;
+    line-height: 1.6;
+}

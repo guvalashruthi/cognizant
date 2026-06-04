@@ -1,0 +1,25 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.newsArticle {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 1px solid gray;
+
+    line-height: 1.8;
+    text-align: justify;
+}

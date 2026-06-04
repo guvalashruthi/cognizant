@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugging with Chrome DevTools</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        .box {
+            width: 300px;
+            padding: 20px;
+            background-color: lightblue;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: blue;
+            color: white;
+            border: none;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box" id="demoBox">
+
+        <h2>Debugging Demo</h2>
+
+        <p id="message">
+            Click the button to test debugging.
+        </p>
+
+        <button onclick="testDebug()">
+            Click Me
+        </button>
+
+    </div>
+
+    <script>
+
+        function testDebug() {
+
+            let userName = "Shruthi";
+            let count = 5;
+
+            console.log("Button Clicked");
+            console.log("User Name:", userName);
+            console.log("Count Value:", count);
+
+            document.getElementById("message").innerHTML =
+                "Debugging Successful!";
+
+            debugger; 
+
+            count++;
+
+            console.log("Updated Count:", count);
+        }
+
+    </script>
+
+</body>
+
+</html>

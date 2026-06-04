@@ -1,0 +1,124 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #007BFF;
+    padding: 2vh 0;
+}
+
+.navLinks {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 3vw;
+}
+
+.navLinks a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2vw;
+}
+
+.heroSection {
+    text-align: center;
+    padding: 8vh 5%;
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    color: white;
+}
+
+.heroSection h1 {
+    font-size: 4vw;
+}
+
+.heroSection p {
+    font-size: 1.5vw;
+    margin-top: 2vh;
+}
+
+.eventContainer {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2vw;
+
+    width: 90%;
+    margin: 5vh auto;
+}
+
+.eventCard {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+
+    padding: 2vh;
+    text-align: center;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.eventCard img {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.eventCard h2 {
+    margin: 2vh 0;
+    font-size: 2vw;
+}
+
+.eventCard p {
+    font-size: 1vw;
+    line-height: 1.6;
+}
+
+/* =========================
+   MEDIA QUERY
+   Screens smaller than 768px
+========================= */
+@media screen and (max-width: 768px) {
+
+    .navLinks {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .navLinks a {
+        font-size: 18px;
+    }
+
+    .heroSection h1 {
+        font-size: 32px;
+    }
+
+    .heroSection p {
+        font-size: 16px;
+    }
+
+    .eventContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .eventCard img {
+        height: 200px;
+    }
+
+    .eventCard h2 {
+        font-size: 24px;
+    }
+
+    .eventCard p {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Invite</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        video {
+            border: 4px solid black;
+            border-radius: 10px;
+        }
+
+        #videoMessage {
+            color: green;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Community Event Promo Video</h2>
+
+    <video width="500"
+           controls
+           oncanplay="videoReady()">
+
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+
+        Your browser does not support video.
+    </video>
+
+    <p id="videoMessage"></p>
+
+   
+
+    <script>
+
+        function videoReady() {
+
+            document.getElementById("videoMessage").innerHTML =
+                "Video ready to play!";
+        }
+
+        window.onbeforeunload = function () {
+
+            return "You have an unfinished form. Are you sure you want to leave?";
+        };
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Feedback</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        .box {
+            width: 400px;
+            padding: 20px;
+            border: 2px solid gray;
+            border-radius: 10px;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        img {
+            width: 250px;
+            height: 180px;
+            border: 3px solid black;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h2>Event Feedback Form</h2>
+
+        <label>Phone Number:</label>
+        <input type="text"
+               id="phone"
+               onblur="validatePhone()"
+               placeholder="Enter 10 digit number">
+
+        <p id="phoneMsg"></p>
+
+        <label>Select Event:</label>
+        <select id="eventSelect" onchange="showFee()">
+            <option value="">Choose Event</option>
+            <option value="100">Music Festival</option>
+            <option value="200">Food Carnival</option>
+            <option value="300">Sports Meet</option>
+        </select>
+
+        <p id="fee"></p>
+
+        <label>Feedback:</label>
+        <textarea id="feedback"
+                  rows="5"
+                  onkeyup="countChars()"
+                  placeholder="Type feedback here"></textarea>
+
+        <p>Characters: <span id="charCount">0</span></p>
+
+        <button onclick="submitForm()">
+            Submit Feedback
+        </button>
+
+        <p id="confirmMsg"></p>
+
+    </div>
+
+    <br>
+
+    <h3>Double Click Image to Enlarge</h3>
+
+    <img src="https://img.magnific.com/free-photo/erawan-waterfall-autumn-thailand-beautiful-waterfall-with-emerald-pool-nature_335224-777.jpg?semt=ais_hybrid&w=740&q=80"
+         id="eventImage"
+         ondblclick="enlargeImage()"
+         alt="Community Event">
+
+    <script>
+
+        function validatePhone() {
+
+            let phone = document.getElementById("phone").value;
+
+            if (phone.length != 10 || isNaN(phone)) {
+                document.getElementById("phoneMsg").innerHTML =
+                    "Invalid Phone Number";
+            }
+            else {
+                document.getElementById("phoneMsg").innerHTML =
+                    "Valid Phone Number";
+            }
+        }
+
+        function showFee() {
+
+            let fee =
+                document.getElementById("eventSelect").value;
+
+            document.getElementById("fee").innerHTML =
+                "Event Fee: ₹" + fee;
+        }
+
+        function submitForm() {
+            let phoneMsg = document.getElementById("phoneMsg").innerHTML;
+            let eventSelected = document.getElementById("eventSelect").value;
+            let feedbackText = document.getElementById("feedback").value;
+            if (phoneMsg === "Valid Phone Number" &&
+                eventSelected !== "" &&
+                feedbackText.length > 0) {
+
+                document.getElementById("confirmMsg").innerHTML =
+                    "Feedback Submitted Successfully!";
+            }
+            else {
+                document.getElementById("confirmMsg").innerHTML =
+                    "Please fill all fields correctly.";
+            }
+        }
+
+        function enlargeImage() {
+
+            let image =
+                document.getElementById("eventImage");
+
+            image.style.width = "400px";
+            image.style.height = "300px";
+        }
+
+        function countChars() {
+
+            let text =
+                document.getElementById("feedback").value;
+
+            document.getElementById("charCount").innerHTML =
+                text.length;
+        }
+
+    </script>
+
+</body>
+
+</html>
